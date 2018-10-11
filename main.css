@@ -1,22 +1,59 @@
 @charset "UTF-8";
 /* CSS Document */
-body {background-color: #D6C039;}
-table {background-color: #DDC410}
-H2 {
-	text-align: center;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-	font-size: 36px;
+body {
+    background-color: #D6C039;
 }
-.main #container {
-    margin-left: auto;
-    margin-right: auto;
+h1, h2, h3, #info, ul, ol {
+    font-family: "Comic Sans MS", cursive, sans-serif;
 }
-
+h2 {
+    text-align: center;
+    font-size: 36px;
+}
+#content {
+    width: calc(100% - 10px);
+    margin: 0 5px 0;
+}
+.container {
+    background-color: #DDC410;
+    padding: 0;
+    border: thin outset grey;
+}
+.container .section {
+    border: thin inset grey;
+    padding: 1px;
+    margin: 2px;
+}
+#sidebar {
+    min-width: 100px;
+    max-width: 250px;
+    width: calc(150px + 10%);
+    float: right;
+}
+h3.my-name {
+    font-size: 1em;
+    text-decoration: underline;
+    font-weight: normal;
+    margin-bottom: 2em;
+}
+#info {
+    text-align: center;
+    line-height: 3em;
+    padding-top: 2em;
+    padding-bottom: 3em;
+}
+#mail-me {
+    font-family: revert;
+}
+#imageboard {
+    float: left;
+    min-width: 200px;
+    width: calc(100% - 260px - 2em);
+}
 .list {
-	text-align: center;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-	font-size: 16px;
+    text-align: center;
+    font-size: 16px;
 }
-@media screen{
-
-
+#main-image {
+    max-width: 100%;
+}

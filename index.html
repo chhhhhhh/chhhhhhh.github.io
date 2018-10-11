@@ -1,84 +1,83 @@
 <!doctype html>
 <html>
-<head>
+    <head>
+	<meta charset="utf-8">
+	<title>bueatiful lovely chspace</title>
+	<link href="main.css" rel="stylesheet" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106475222-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-106475222-2');
-</script>
-
-<meta charset="UTF-8">
-	
-<title>bueatiful lovely chspace</title>
-<link href="main.css" rel="stylesheet" type="text/css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body class="content">
-	
-
-	 
-<h2> my lovely chspace</h2>
- 
-<section class="main">
- <div class="container">
-<div class="floatLeft">
-  <table width="900" height="1132" border="1" style="float: left" class="color" > 
-
-   
-
-      <tbody>
-	  <center> 
-          <td width="1340">         <img src="https://raw.githubusercontent.com/chhhhhhh/chhhhhhh.github.io/master/Scan%2010.jpg width="765" height="1132" style="float:right" alt="scan"/></th>
-</tr>
-	  </center>
-      </tbody>
-  </table>
-	</div>
-<div class="floatRight">
-    <table width="250" height="585" border="1" style="float: right" class="color">
-      <tbody>
-        <tr>
-            &nbsp;
-          
-           
-          
-                  <td height="154"></center>
-                    <img src="/icon.jpg" width="232" height="231" alt=""/>
-                 
-                  <td></img></th></tr>
- <td height="12"></td>
-        </tr>
-        <tr>
-          <td height="385"><center>
-            <a class="list">
-            <p><u>peter h </u>			  </p>
-            <p>&nbsp;</p>
-            <p>lives in san francisco</p>
-			  <p>likes to draw</p>
-		    <p>funny yet, evil boy hehe</p>
-		    <p>&nbsp;</p>
-				  <p>
-					  <a href="mailto:pete@chhhhhhh.com">
-						  mail me
-					  </a>
-				  </p>
-		    </a>
-          </center>
-          </td>
-        </tr>
-      <td height="22">
-  </table>
-</div>
-
-
-  </div>
-</section
-	
-</body>
+	<script>
+	 window.dataLayer = window.dataLayer || [];
+	 function gtag(){dataLayer.push(arguments);}
+	 gtag('js', new Date());
+	 gtag('config', 'UA-106475222-2');
+	</script>
+	<script>
+	 function get_img_dict(r){
+	     var dict = {};
+	     r = r.trim().split('\n');
+	     for(const i of r.values()){
+		 if(i.split(/\s+/).length > 1){
+		     dict[i.split(/\s+/)[0]] = i.split(/\s+/)[1];
+		 } else {
+		     dict[i]='';
+		 }
+	     }
+	     return dict;
+	 }
+	 var img_list = {};
+	 var img_elem = new Image();
+	 function init() {
+	     var img_list_f = new XMLHttpRequest();
+	     img_list_f.open('GET', 'pics.txt', true);
+	     img_list_f.onreadystatechange = function(){
+		 if(img_list_f.readyState === 4){
+		     if(img_list_f.status === 200){
+			 img_list = get_img_dict(img_list_f.responseText);
+			 n = parseInt(Math.random()*(Object.keys(img_list).length));
+			 img_elem.src = 'pics/' + Object.keys(img_list)[n];
+			 img_elem.id = 'main-image';
+			 img_elem.alt = img_elem.title = Object.values(img_list)[n];
+		     }
+		     if(img_list === {}) {
+			 img_list = {'default.jpg' : 'loading error >_<'};
+		     }
+		 }
+	     }
+	     img_list_f.send();
+	 }
+	</script>
+    </head>
+    <body id="content">
+	<h2> my lovely chspace</h2>
+	<section id="main">
+	    <div class="container" id="sidebar">
+		<div class="section" id="info">
+		    <h3 class="my-name">chem</h3>
+		    <p>lives in california<br>
+			likes to draw<br>
+			funny yet, evil boy hehe</p>
+		    <div id="mail-me">
+			<a href="mailto:pete@chhhhhhh.com">
+			    mail me
+			</a>
+		    </div>
+		</div>
+	    </div>
+	    <div class="container" id="imageboard">
+		<div class="image-container section">
+		    <script>
+		     document.addEventListener('DOMContentLoaded', function(e){
+			 init();
+			 var img_cnt = document.querySelector('#imageboard .image-container');
+			 img_cnt.appendChild(img_elem);
+		     });
+		    </script>
+		    <noscript>
+			<img alt src="pics/default.jpg">
+		    </noscript>
+		</div>
+	    </div>
+	</section>
+    </body>
 </html>
-
-  
- 
