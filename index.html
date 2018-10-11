@@ -17,11 +17,8 @@
 	     var dict = {};
 	     r = r.trim().split('\n');
 	     for(const i of r.values()){
-		 if(i.split(/\s+/).length > 1){
-		     dict[i.split(/\s+/)[0]] = i.split(/\s+/)[1];
-		 } else {
-		     dict[i]='';
-		 }
+		 match = i.match(/(\S+)\s*([\w\s]+)*/);
+		 dict[match[1]] = match[2]? match[2] : '';
 	     }
 	     return dict;
 	 }
